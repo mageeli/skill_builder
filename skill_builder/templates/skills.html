@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+{% block content %}
+{% if user.is_authenticated %}
+  Welcome  {{ user.username }} ! <a href="{% url 'logout' %}">logout</a>
+{% else %}
+  You are not logged in <a href="{% url 'login' %}">login</a>
+{% endif %}
+{% endblock %}
+<link rel="stylesheet"
+      type="text/css"
+      href="{% static 'skill_builder/style.css' %}" />
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% include 'navbar.html' %}
+
+<h1>skills</h1>
+
+{% for skill in object_list %}
+<hr>
+<h2>{{ skill.title }}</h2>
+<b>{{ skill.progress }}</b>
+<br>
+{{ skill.learning_time }}
+{% endfor %}
+</body>
+</html>

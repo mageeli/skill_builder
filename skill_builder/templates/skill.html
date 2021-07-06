@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+
+<link rel="stylesheet"
+      type="text/css"
+      href="{% static 'skill_builder/style.css' %}" />
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>skills</h1>
+
+{% for subSkill in object_list %}
+<hr>
+<h2>{{ subSkill.title }}</h2>
+<b>{{ subSkill.progress }}</b>
+<br>
+{{ subSkill.learning_time }}
+{% endfor %}
+</body>
+</html>
